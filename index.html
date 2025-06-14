@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- ========================================
+         Document Meta Information / 文書メタ情報
+         ======================================== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N.Tanaka Portfolio</title>
+    <meta
+      name="description"
+      content="N.Tanaka ポートフォリオサイト - Web制作・3DCG・デザイン"
+    />
+
+    <!-- SEO・アクセシビリティ設定 -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- ========================================
+         External Resources / 外部リソース
+         ======================================== -->
+    <!-- メインスタイルシート -->
+    <link rel="stylesheet" href="./src/css/style.css" />
+
+    <!-- Google Fonts読み込み（パフォーマンス最適化済み） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ========================================
+         3D Model Loader Setup / Three.js設定
+         ======================================== -->
+    <!-- Three.js Import Map設定 -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"
+        }
+      }
+    </script>
+    <!-- カスタム3Dモデルローダーコンポーネント -->
+    <script type="module" src="./src/js/model-loader-component.js"></script>
+  </head>
+
+  <body>
+    <!-- ========================================
+         Loading Screen / ローディング画面
+         ======================================== -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- ========================================
+         Header / ヘッダー（固定ナビゲーション）
+         ======================================== -->
+    <header class="header">
+      <div class="header-content">
+        <!-- ロゴ（ホームへのリンク） -->
+        <a href="#home" class="logo">N.Tanaka</a>
+
+        <!-- ナビゲーション -->
+        <nav>
+          <!-- ハンバーガーメニューボタン（モバイル用） -->
+          <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- メインナビゲーションメニュー -->
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================================
+         Main Content / メインコンテンツ
+         ======================================== -->
+    <main class="main-content">
+      <!-- ====================================
+           Hero Section / ヒーローセクション
+           ==================================== -->
+      <section id="home" class="hero">
+        <div class="hero-content fade-in">
+          <h1>Nobuyuki Tanaka<br />Portfolio</h1>
+          <p>Web Design • 3D Graphics • Creative Development</p>
+        </div>
+      </section>
+
+      <!-- ====================================
+           About Section / 自己紹介セクション
+           ==================================== -->
+      <section id="about" class="section">
+        <div class="section-container">
+          <h2 class="section-title fade-element">About</h2>
+          <div class="about-content fade-element">
+            <!-- 自己紹介テキスト -->
+            <div class="about-text">
+              <p>
+                これまで品質管理の現場で働いてきました。不具合対応やお客様への説明、再発防止など、責任ある業務を通して課題解決力や丁寧な対応力を磨いてきました。
+              </p>
+              <p>
+                体調を崩し退職しましたが、その後は家族との時間が増え、子どもの成長や悩みにしっかり向き合えるようになったことは、私にとって大きな転機でした。
+              </p>
+              <p>
+                この時間の中で、自分が本当に興味を持てることに挑戦したいという気持ちが芽生え、現在はBlenderやThree.jsを中心に、3D表現やWeb制作のスキルを日々学んでいます。
+              </p>
+              <p>
+                一度きりの人生だからこそ、後悔しないように、自分の興味に正直に、全力で学び、成長していきたいと思っています。
+              </p>
+            </div>
+
+            <!-- 3Dモデル表示エリア -->
+            <div class="about-model" id="aboutModel">
+              <webgl-model-loader
+                model-url="/assets/img/glb/chi-pp.glb"
+                auto-rotate
+              >
+              </webgl-model-loader>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================
+           Works Section / 作品紹介セクション
+           ==================================== -->
+      <section id="works" class="section">
+        <div class="section-container">
+          <h2 class="section-title fade-element">Works</h2>
+
+          <!-- ----------------------------------
+               Homepage Works / Webサイト作品
+               ---------------------------------- -->
+          <h3 class="fade-element section-subtitle">Homepage</h3>
+
+          <div class="work-grid fade-element">
+            <!-- 作品1: 架空カフェサイト -->
+            <div class="work-card">
+              <div class="work-media">
+                <iframe
+                  src="https://www.youtube.com/embed/d32ZIiQBFeU"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">架空カフェ「犬と珈琲」</h3>
+                <p class="work-description">
+                  職業訓練校での課題制作として取り組んだ、架空のカフェサイトです。「犬と珈琲が好き」という自身の好みをテーマに、どちらも楽しめる特別な空間をイメージしてデザイン・構築しました。
+                </p>
+                <a
+                  href="https://chi-papa.github.io/cafe-mock-site/"
+                  class="work-link"
+                  target="_blank"
+                  >🌐 サイトを見る</a
+                >
+              </div>
+            </div>
+
+            <!-- 作品2: 架空コミュニティサイト -->
+            <div class="work-card">
+              <div class="work-media">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/cy6TS79vd54?si=M50cNFAnfdgyZ3Xx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">自転車コミュニティサイト</h3>
+                <p class="work-description">
+                  実際に自転車で様々な場所を走る中で実感した「一人の楽しさ、仲間との喜び」という体験をもとに制作したコミュニティサイトです。走った先で出会う美味しいグルメスポットや絶景、そこで生まれる感動を仲間と分かち合える、そんな温かなコミュニティづくりを大切にしました。
+                </p>
+                <a
+                  href="https://chi-papa.github.io/tabi-ride-moc-site/"
+                  class="work-link"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  🌐 サイトを見る
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3Dモデル表示（Homepage作品セクション用） -->
+          <div class="model-container fade-element" id="homepageModel">
+            <webgl-model-loader
+              model-url="/assets/img/glb/hp-cube.glb"
+              auto-rotate
+              class="hp-cube"
+            >
+            </webgl-model-loader>
+          </div>
+
+          <!-- ----------------------------------
+               Blender Works / Blender作品
+               ---------------------------------- -->
+          <h3
+            class="fade-element"
+            style="font-size: 2rem; margin: 3rem 0 2rem 0; text-align: center"
+          >
+            Blender
+          </h3>
+
+          <div class="work-grid fade-element">
+            <!-- Blender作品1: Mixamo体験 -->
+            <div class="work-card">
+              <div class="work-media">
+                <iframe
+                  src="https://www.youtube.com/embed/_xsmPzc874Q"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">Mixamo体験</h3>
+                <p class="work-description">
+                  Adobe
+                  Mixamoを使ってリギングとモーション付けを行いました。キャラクターは簡素ながらも動きが伝わりやすいように設計し、カメラワークにはBlenderのエンプティオブジェクトを用いて動きのある表現を試みました。
+                </p>
+              </div>
+            </div>
+
+            <!-- Blender作品2: Geometry Nodes -->
+            <div class="work-card">
+              <div class="work-media">
+                <iframe
+                  src="https://www.youtube.com/embed/JsrBgMLpd9M"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">Geometry Nodes Animation</h3>
+                <p class="work-description">
+                  ジオメトリノードを用いて、植物が成長していくアニメーションを制作しました。YouTubeのチュートリアルを参考にしながら、ノードを組み上げ、動きのある自然表現に取り組みました。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------
+               Banner Design Works / バナーデザイン
+               ---------------------------------- -->
+          <h3 class="fade-element section-subtitle">
+            Banner Design
+            <p class="link">※架空案件（webクリエイターボックス）</p>
+          </h3>
+
+          <div class="work-grid fade-element">
+            <!-- バナー作品1: 夏期講習 -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/banner/summer_semiBanner.webp"
+                  alt="夏期講習バナー"
+                  loading="lazy"
+                  width="600"
+                  height="500"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">個別塾 夏期講習</h3>
+                <p class="work-description">
+                  「夏期講習」を左上に配置し視線の入り口に。指さしポーズで自然な視線誘導を設計
+                </p>
+                <a
+                  href="https://www.webcreatorbox.com/blog/banner-design-10"
+                  class="work-link"
+                  target="_blank"
+                  >課題元サイト</a
+                >
+              </div>
+            </div>
+
+            <!-- バナー作品2: シャンプー -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/banner/shampooBanner.webp"
+                  alt="シャンプーバナー"
+                  loading="lazy"
+                  width="600"
+                  height="500"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">シャンプー広告</h3>
+                <p class="work-description">
+                  若い女性向けに親しみやすさを重視。「さ」の文字にリズム感を持たせ、使う楽しさを表現
+                </p>
+                <a
+                  href="https://www.webcreatorbox.com/blog/banner-design-10"
+                  class="work-link"
+                  target="_blank"
+                  >課題元サイト</a
+                >
+              </div>
+            </div>
+
+            <!-- バナー作品3: ヨガスタジオ -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/banner/yogaStudioBanner.webp"
+                  alt="ヨガスタジオバナー"
+                  loading="lazy"
+                  width="600"
+                  height="500"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">ヨガ広告</h3>
+                <p class="work-description">
+                  運動初心者の女性をターゲットに、親しみやすさと安心感を重視したデザイン
+                </p>
+                <a
+                  href="https://www.webcreatorbox.com/blog/banner-design-10"
+                  class="work-link"
+                  target="_blank"
+                  >課題元サイト</a
+                >
+              </div>
+            </div>
+
+            <!-- バナー作品4: 赤ちゃんアプリ -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/banner/babybanner_kai.webp"
+                  alt="赤ちゃんアプリ広告"
+                  loading="lazy"
+                  width="600"
+                  height="500"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">赤ちゃんアプリ</h3>
+                <p class="work-description">
+                  妊娠中の不安を和らげる、笑顔のイラストと分かりやすい表現で家族の絆を深めるデザイン
+                </p>
+                <a
+                  href="https://www.webcreatorbox.com/blog/banner-design-10"
+                  class="work-link"
+                  target="_blank"
+                  >課題元サイト</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ----------------------------------
+               Logo Design Works / ロゴデザイン
+               ---------------------------------- -->
+          <h3 class="fade-element section-subtitle">Logo Design</h3>
+
+          <div class="work-grid fade-element">
+            <!-- ロゴ作品1: サイクルショップ -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/logo/bikeshop.webp"
+                  alt="サイクルショップロゴ"
+                  loading="lazy"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">サイクルショップ ロゴ</h3>
+                <p class="work-description">
+                  ネットショップ用途を想定し、アイコンサイズでも視認性を保つモノクロ・高コントラスト設計。コンペ最終候補・初報酬作品。
+                </p>
+              </div>
+            </div>
+
+            <!-- ロゴ作品2: ヘアサロン -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/logo/hairsalon.webp"
+                  alt="ヘアサロンロゴ"
+                  loading="lazy"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">ヘアサロン ロゴ</h3>
+                <p class="work-description">
+                  サロン名をリボン状につなぎ、髪の流れを表現したロゴ。昭和レトロな色合いで親しみやすさを演出。
+                </p>
+              </div>
+            </div>
+
+            <!-- ロゴ作品3: 音響会社 -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/logo/onkyo-oto.webp"
+                  alt="音響会社ロゴ"
+                  loading="lazy"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">音響会社のロゴ</h3>
+                <p class="work-description">
+                  逆さ音符と太陽を組み合わせ、上昇する音のエネルギーをシンボル化。親しみやすさと力強さを両立。
+                </p>
+              </div>
+            </div>
+
+            <!-- ロゴ作品4: インフラ企業 -->
+            <div class="work-card">
+              <div class="work-media">
+                <img
+                  src="./assets/img/logo/livlogo.webp"
+                  alt="インフラ企業のロゴ"
+                  loading="lazy"
+                />
+              </div>
+              <div class="work-content">
+                <h3 class="work-title">インフラ企業ロゴ</h3>
+                <p class="work-description">
+                  企業名LIVを三角形で構成。インフラの安定性と堅牢さを幾何学的に表現したロゴデザイン
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================
+           Contact Section / お問い合わせセクション
+           ==================================== -->
+      <section id="contact" class="section contact">
+        <div class="section-container">
+          <h2 class="section-title fade-element">Contact</h2>
+          <div class="contact-content fade-element">
+            <p
+              class="contact-intro"
+            >
+              お仕事のご相談やご質問がございましたら、お気軽にお声がけください。
+            </p>
+              現在、アルバイトやアシスタントのような形でも構いませんので、実務経験を通じてスキルアップしていきたいと考えています。
+            </p>
+
+            <!-- ----------------------------------
+                 Contact Form / お問い合わせフォーム
+                 ---------------------------------- -->
+            <div class="contact-form-wrap animate-fade-in" id="contact">
+              <div class="contact-form-container">
+                <!-- 送信完了メッセージ（初期は非表示） -->
+                <div
+                  class="success-message"
+                  id="success-message"
+                  style="display: none"
+                >
+                  メッセージが送信されました。ありがとうございます！
+                </div>
+
+                <!-- Formspree連携フォーム -->
+                <form
+                  class="contact-form"
+                  action="https://formspree.io/f/mldnddnk"
+                  method="POST"
+                  id="contactForm"
+                >
+                  <!-- Formspree設定項目（非表示） -->
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value="ウェブサイトからのお問い合わせ"
+                  />
+                  <input type="hidden" name="_next" value="thank-you.html" />
+                  <input type="hidden" name="_replyto" value="" />
+
+                  <!-- スパム対策フィールド（ボット検知用・非表示） -->
+                  <input type="text" name="_gotcha" style="display: none" />
+
+                  <!-- お名前 -->
+                  <div class="form-group">
+                    <label for="name" class="form-label">
+                      お名前 <span style="color: red">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      required
+                    />
+                  </div>
+
+                  <!-- メールアドレス -->
+                  <div class="form-group">
+                    <label for="email" class="form-label">
+                      メールアドレス <span style="color: red">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      required
+                    />
+                  </div>
+
+                  <!-- 電話番号（任意） -->
+                  <div class="form-group">
+                    <label for="phone" class="form-label">電話番号</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="form-input"
+                    />
+                  </div>
+
+                  <!-- 件名 -->
+                  <div class="form-group">
+                    <label for="subject" class="form-label">
+                      件名 <span style="color: red">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      class="form-input"
+                      required
+                    />
+                  </div>
+
+                  <!-- メッセージ本文 -->
+                  <div class="form-group">
+                    <label for="message" class="form-label">
+                      メッセージ <span style="color: red">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      class="form-textarea"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <!-- 送信ボタン -->
+                  <button type="submit" class="submit-button">送信する</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ========================================
+     Footer / フッター
+     ======================================== -->
+<footer class="footer">
+  <div class="footer-content">
+    <!-- フッターメイン情報 -->
+    <div class="footer-main">
+      <!-- ロゴ・名前 -->
+      <div class="footer-brand">
+        <h3>N.Tanaka</h3>
+        <p>Web Design • 3D Graphics • Creative Development</p>
+      </div>
+
+      <!-- ナビゲーションリンク -->
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- 技術スタック -->
+      <div class="footer-skills">
+        <h4>Skills</h4>
+        <ul>
+          <li>HTML/CSS/JavaScript</li>
+          <li>Three.js</li>
+          <li>Blender</li>
+          <li>Photoshop/Illustrator</li>
+        </ul>
+      </div>
+
+      <!-- 外部リンク -->
+      <div class="footer-links">
+        <h4>External Links</h4>
+        <ul>
+          <li><a href="https://github.com/chi-papa" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.youtube.com/@NobuyukiTanaka_Portfolio" target="_blank" rel="noopener">YouTube</a></li>
+          <!-- 他のSNSがあれば追加 -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- フッターボトム -->
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <p>&copy; 2025 N.Tanaka Portfolio. All rights reserved.</p>
+      </div>
+      
+      <!-- 作成情報 -->
+      <div class="footer-info">
+        <p>手作りで制作したポートフォリオサイトです</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+    <!-- ========================================
+         JavaScript / スクリプト読み込み
+         ======================================== -->
+    <!-- メインJavaScriptファイル -->
+    <script src="./src/js/main.js"></script>
+  </body>
+</html>
+
+<!-- 
+========================================
+Development Notes / 開発メモ
+========================================
+- Formspree連携URL: https://formspree.io/f/mldnddnk
+- 3Dモデルファイルパス: /assets/img/glb/
+- YouTube埋め込み動画は遅延読み込み設定済み
+- 画像はWebP形式でlazy loading対応
+========================================
+-->
