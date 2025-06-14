@@ -34,17 +34,7 @@
     <!-- ========================================
          3D Model Loader Setup / Three.js設定
          ======================================== -->
-    <!-- Three.js Import Map設定 -->
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"
-        }
-      }
-    </script>
-    <!-- カスタム3Dモデルローダーコンポーネント -->
-    <script type="module" src="./src/js/model-loader-component.js"></script>
+    
   </head>
 
   <body>
@@ -615,7 +605,6 @@
 Development Notes / 開発メモ
 ========================================
 - Formspree連携URL: https://formspree.io/f/mldnddnk
-- 3Dモデルファイルパス: /assets/img/glb/
 - YouTube埋め込み動画は遅延読み込み設定済み
 - 画像はWebP形式でlazy loading対応
 ========================================

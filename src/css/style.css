@@ -197,10 +197,12 @@ html {
    About Section / Aboutセクション
    ========================================================================== */
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 300px; /* テキスト部分 + 3Dモデル部分 */
-  gap: 4rem;
-  align-items: center;
+  /* display: flex; */
+  width: 43rem;
+  margin: 0 auto;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-align: center; */
 }
 
 .about-text {
