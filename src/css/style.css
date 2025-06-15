@@ -197,12 +197,8 @@ html {
    About Section / Aboutセクション
    ========================================================================== */
 .about-content {
-  /* display: flex; */
-  width: 43rem;
+  width: clamp(380px, 50vw, 600px);
   margin: 0 auto;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* text-align: center; */
 }
 
 .about-text {
